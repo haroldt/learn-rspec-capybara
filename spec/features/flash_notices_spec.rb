@@ -9,9 +9,13 @@ describe "Flash Notices", js: true do
   end
 
   it "can be dismissed by the user" do
+    expect(page).to have_content('You need to sign in or sign up before continuing')
+    within('.alert') do
+      find('.close').click
+    end
+    expect(page).not_to have_content('You need to sign in or sign up before continuing')
     # check that the flash message exists
     # click to close the flash message
     # check that the flash message is gone
-    pending
   end
 end
